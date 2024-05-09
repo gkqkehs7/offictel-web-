@@ -1,31 +1,53 @@
-import { faker } from '@faker-js/faker';
+// import { faker } from '@faker-js/faker';
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
-import Iconify from 'src/components/iconify';
+// import Iconify from 'src/components/iconify';
 
 import AppTasks from '../app-tasks';
-import AppNewsUpdate from '../app-news-update';
-import AppOrderTimeline from '../app-order-timeline';
-import AppCurrentVisits from '../app-current-visits';
-import AppWebsiteVisits from '../app-website-visits';
-import AppWidgetSummary from '../app-widget-summary';
-import AppTrafficBySite from '../app-traffic-by-site';
-import AppCurrentSubject from '../app-current-subject';
-import AppConversionRates from '../app-conversion-rates';
+
+// import AppNewsUpdate from '../app-news-update';
+// import AppOrderTimeline from '../app-order-timeline';
+// import AppCurrentVisits from '../app-current-visits';
+// import AppWebsiteVisits from '../app-website-visits';
+// import AppWidgetSummary from '../app-widget-summary';
+// import AppTrafficBySite from '../app-traffic-by-site';
+// import AppCurrentSubject from '../app-current-subject';
+// import AppConversionRates from '../app-conversion-rates';
 
 // ----------------------------------------------------------------------
 
 export default function AppView() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   return (
     <Container maxWidth="xl">
       <Typography variant="h4" sx={{ mb: 5 }}>
-        Hi, Welcome back 👋
+        일정 👋
       </Typography>
 
-      <Grid container spacing={3}>
+      {/* 날짜 선택 */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginBottom: '20px',
+        }}
+      >
+        <DatePicker
+          selected={selectedDate}
+          dateFormat="yyyy년 MM월 dd일"
+          onChange={(date) => setSelectedDate(date)}
+        />
+      </div>
+
+      {/* <Grid container spacing={3}>
         <Grid xs={12} sm={6} md={3}>
           <AppWidgetSummary
             title="Weekly Sales"
@@ -210,20 +232,19 @@ export default function AppView() {
               },
             ]}
           />
-        </Grid>
+        </Grid> */}
 
-        <Grid xs={12} md={6} lg={8}>
-          <AppTasks
-            title="Tasks"
-            list={[
-              { id: '1', name: 'Create FireStone Logo' },
-              { id: '2', name: 'Add SCSS and JS files if required' },
-              { id: '3', name: 'Stakeholder Meeting' },
-              { id: '4', name: 'Scoping & Estimations' },
-              { id: '5', name: 'Sprint Showcase' },
-            ]}
-          />
-        </Grid>
+      <Grid xs={12} md={6} lg={8}>
+        <AppTasks
+          title={selectedDate.toString()}
+          list={[
+            { id: '1', name: 'Create FireStone Logo' },
+            { id: '2', name: 'Add SCSS and JS files if required' },
+            { id: '3', name: 'Stakeholder Meeting' },
+            { id: '4', name: 'Scoping & Estimations' },
+            { id: '5', name: 'Sprint Showcase' },
+          ]}
+        />
       </Grid>
     </Container>
   );
