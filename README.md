@@ -1,3 +1,23 @@
+
+### Install packages
+```shell
+$ pip install -r requirements.txt
+```
+install python pacakges
+
+> [!CAUTION]
+> if proxy problem occurs, put cert and proxy options
+
+<br/>
+
+### Install local mongo
+
+install mongodb community server on https://www.mongodb.com/try/download/community 
+
+> [!CAUTION]
+> 8.0.3(current) version can be installed, but if it does not run, install version 7.0.15 instead
+
+
 ## Minimal [(Free version)](https://minimal-kit-react.vercel.app/)
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
