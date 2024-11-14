@@ -1,23 +1,3 @@
-
-### Install packages
-```shell
-$ pip install -r requirements.txt
-```
-install python pacakges
-
-<br/>
-
-> [!CAUTION]
-> if proxy problem occurs, put cert and proxy options
-
-<br/>
-
-### Install local mongo
-
-install mongodb community server on https://www.mongodb.com/try/download/community 
-
-<br/>
-
 > [!CAUTION]
 > 8.0.3(current) version can be installed, but if it does not run, install version 7.0.15 instead
 
